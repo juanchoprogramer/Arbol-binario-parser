@@ -1,23 +1,28 @@
 #pragma once
-template <class Tareas>
 class Nodo {
 protected:
-	Tareas* datos;
-	Tareas* estatus;
-	Nodo<Tareas>* siguiente;
+	char* datos;
+	int* estatus;
+	Nodo* siguienteDerecha;
+	Nodo* siguienteIzquierda;
 	int apuntador;
 public:
-	Nodo(Tareas informacion, Tareas valor);
-	Nodo() : datos(NULL), estatus(NULL), siguiente(NULL) {}
+	Nodo(char *informacion, int *valor);
+	Nodo() : datos(), estatus(), siguienteDerecha(), siguienteIzquierda(){}
 	~Nodo() {
 		delete datos;
 		delete estatus;
-		siguiente = NULL;
+		siguienteDerecha = nullptr;
+		siguienteIzquierda = nullptr;
 	}
-	void setInformacion(Tareas informacion);
-	void setSiguiente(Nodo<Tareas>* s);
-	void setEstatus(Tareas valor);
-	const Tareas getDatos() const;
-	const Tareas getEstatus() const;
-	Nodo<Tareas>* getSiguiente();
+	void setInformacion(char* informacion, int* valor);
+	void setSiguienteDerecha(Nodo* s);
+	void setSiguienteIzquierda(Nodo* s);
+	void setDatos(char* informacion);
+	void setEstatus(int* valor);
+	const char* getDatos() const;
+	const int* getEstatus() const;
+	Nodo* getSiguienteDerecha();
+	Nodo* getSiguienteIzquierda();
+
 };
